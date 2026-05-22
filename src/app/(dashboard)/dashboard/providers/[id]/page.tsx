@@ -3185,24 +3185,23 @@ export default function ProviderDetailPage() {
       );
     }
 
-    const importButton =
-      providerId === "gemini" ? null : (
-        <div className="flex items-center gap-2 mb-4">
-          <Button
-            size="sm"
-            variant="secondary"
-            icon="download"
-            onClick={handleImportModels}
-            disabled={!canImportModels || importingModels}
-          >
-            {importingModels ? t("importingModels") : t("importFromModels")}
-          </Button>
-          {autoSyncToggle}
-          {!canImportModels && (
-            <span className="text-xs text-text-muted">{t("addConnectionToImport")}</span>
-          )}
-        </div>
-      );
+    const importButton = (
+      <div className="flex items-center gap-2 mb-4">
+        <Button
+          size="sm"
+          variant="secondary"
+          icon="download"
+          onClick={handleImportModels}
+          disabled={!canImportModels || importingModels}
+        >
+          {importingModels ? t("importingModels") : t("importFromModels")}
+        </Button>
+        {autoSyncToggle}
+        {!canImportModels && (
+          <span className="text-xs text-text-muted">{t("addConnectionToImport")}</span>
+        )}
+      </div>
+    );
 
     if (models.length === 0) {
       return (

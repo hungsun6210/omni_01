@@ -675,10 +675,10 @@ export const REGISTRY: Record<string, RegistryEntry> = {
     alias: "gemini",
     format: "gemini",
     executor: "default",
-    baseUrl: "https://generativelanguage.googleapis.com/v1beta/models",
+    baseUrl: "https://generativelanguage.googleapis.com/v1beta",
     urlBuilder: (base, model, stream) => {
       const action = stream ? "streamGenerateContent?alt=sse" : "generateContent";
-      return `${base}/${model}:${action}`;
+      return `${base}/models/${model}:${action}`;
     },
     authType: "apikey",
     authHeader: "x-goog-api-key",

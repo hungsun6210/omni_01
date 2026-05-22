@@ -226,7 +226,7 @@ export class DefaultExecutor extends BaseExecutor {
       case "minimax-cn":
         return `${this.config.baseUrl}?beta=true`;
       case "gemini":
-        return `${this.config.baseUrl}/${model}:${stream ? "streamGenerateContent?alt=sse" : "generateContent"}`;
+        return `${this.config.baseUrl}/models/${model}:${stream ? "streamGenerateContent?alt=sse" : "generateContent"}`;
       case "qwen": {
         const resourceUrl = credentials?.providerSpecificData?.resourceUrl;
         return `https://${resourceUrl || "portal.qwen.ai"}/v1/chat/completions`;

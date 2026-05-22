@@ -25,18 +25,18 @@ export const ANTIGRAVITY_NODE_API_CLIENT = "google-api-nodejs-client/10.3.0";
 // Harness/bootstrap X-Goog-Api-Client synced with CLIProxyAPI misc.AntigravityGoogAPIClientUA.
 export const ANTIGRAVITY_CREDIT_PROBE_API_CLIENT = "gl-node/22.21.1";
 export const ANTIGRAVITY_API_CLIENT = ANTIGRAVITY_CREDIT_PROBE_API_CLIENT;
-type AntigravityLoadCodeAssistPlatform = "MACOS" | "WINDOWS" | "LINUX";
+type AntigravityLoadCodeAssistPlatform = "macos" | "windows" | "linux";
 
 function getAntigravityLoadCodeAssistPlatformLabel(
   platform: NodeJS.Platform = process.platform
 ): AntigravityLoadCodeAssistPlatform {
   switch (platform) {
     case "darwin":
-      return "MACOS";
+      return "macos";
     case "win32":
-      return "WINDOWS";
+      return "windows";
     default:
-      return "LINUX";
+      return "linux";
   }
 }
 
@@ -85,11 +85,10 @@ export function antigravityNativeOAuthUserAgent(): string {
 }
 
 export function getAntigravityLoadCodeAssistMetadata(
-  platform: NodeJS.Platform = process.platform
+  _platform: NodeJS.Platform = process.platform
 ): Record<string, string> {
   return {
     ideType: "ANTIGRAVITY",
-    platform: getAntigravityLoadCodeAssistPlatformLabel(platform),
     pluginType: "GEMINI",
   };
 }
